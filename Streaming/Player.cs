@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows.Forms;
+using Timer = System.Windows.Forms.Timer;
 
 namespace Streaming
 {
@@ -23,88 +25,52 @@ namespace Streaming
         }
 
         // Init
-        public Player()
+        public Player(Video vid)
         {
             InitializeComponent();
-            initTimer();
+            InitTimer();
+            video.URL = vid.Path;
         }
 
         // Top buttons
-        private void close_Click(object sender, EventArgs e)
+        private void Close_Click(object sender, EventArgs e)
         {
+            video.Ctlcontrols.stop();
             Close();
         }
 
-        private void minmax_Click(object sender, EventArgs e)
+        private void Minmax_Click(object sender, EventArgs e)
         {
             WindowState = WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
         }
 
-        private void min_Click(object sender, EventArgs e)
+        private void Min_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
 
         // Video streaming buttons
-        private void play_Click(object sender, EventArgs e)
+        private void Play_Click(object sender, EventArgs e)
         {
+            replay.Visible = false;
             if (play.Text == "Play")
             {
                 video.Ctlcontrols.play();
                 play.Text = "Pause";
-            } else
+            }
+            else
             {
                 video.Ctlcontrols.pause();
                 play.Text = "Play";
             }
-            
+
         }
 
-        private void stop_Click(object sender, EventArgs e)
-        {
-            video.Ctlcontrols.stop();
-            play.Text = "Play";
-        }
-
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            if (debounce == true) return;
-             debounce = true; 
-
-            video.Ctlcontrols.pause();
-            timer1.Stop();
-            timer2 = new Timer();
-            timer2.Interval = 100;
-            timer2.Tick += new EventHandler(trackbar_seek);
-            timer2.Start();
-        }
-
-        private void trackbar_seek(object sender, EventArgs e)
-        {
-            video.Ctlcontrols.currentPosition = seek.Value / 10;
-
-
-            timer2.Stop();
-            timer1.Start();
-           debounce = false;
-        }
-
-        private void seek_MouseUp(object sender, MouseEventArgs e)
-        {
-            video.Ctlcontrols.play();
-        }
-
+        // Timers
         private Timer timer2;
-        bool debounce = false;
-
-
-        private void Loaded(object sender, AxWMPLib._WMPOCXEvents_MediaChangeEvent e)
-        {
-            seek.Maximum = (int)Math.Ceiling(video.currentMedia.duration)*10;
-        }
-        
         private Timer timer1;
-        private void initTimer()
+        bool debounce = false;
+        private void InitTimer()
         {
             timer1 = new Timer();
             timer1.Tick += new EventHandler(Update);
@@ -112,11 +78,77 @@ namespace Streaming
             timer1.Start();
         }
 
-        private void Update(object sender, EventArgs e)
+
+        private void Stop_Click(object sender, EventArgs e)
         {
-            seek.Value = (int)(video.Ctlcontrols.currentPosition*10);
+            video.Ctlcontrols.stop();
+            play.Text = "Play";
+        }
+
+        // Seeking
+        private void TrackBar1_Scroll(object sender, EventArgs e)
+        {
+            if (debounce == true) return;
+            debounce = true;
+
+            video.Ctlcontrols.pause();
+            timer1.Stop();
+            timer2 = new Timer
+            {
+                Interval = 100
+            };
+            timer2.Tick += new EventHandler(Trackbar_seek);
+            timer2.Start();
+        }
+
+        private void Trackbar_seek(object sender, EventArgs e)
+        {
+            video.Ctlcontrols.currentPosition = seek.Value / 10;
+            video.Ctlcontrols.play();
+            play.Text = "Pause";
+            timer2.Stop();
+            timer1.Start();
+            debounce = false;
+        }
+
+        private void Seek_MouseUp(object sender, MouseEventArgs e)
+        {
+            video.Ctlcontrols.play();
+        }
+
+        private void Loaded(object sender, AxWMPLib._WMPOCXEvents_MediaChangeEvent e)
+        {
+            seek.Maximum = (int)Math.Ceiling(video.currentMedia.duration) * 10;
         }
 
 
+
+
+        private void Update(object sender, EventArgs e)
+        {
+            int pos = (int)(video.Ctlcontrols.currentPosition * 10);
+            bool comp = pos <= seek.Maximum;
+            seek.Value = comp ? pos : seek.Maximum;
+            if (!comp)
+            {
+                play.Text = "Play";
+                Thread.Sleep(500);
+                replay.Visible = true;
+            }
+        }
+
+        private void Fs_Click(object sender, EventArgs e)
+        {
+            video.fullScreen = !video.fullScreen;
+            if (play.Text == "Pause") video.Ctlcontrols.play();
+            else video.Ctlcontrols.pause();
+        }
+
+        private void Replay_Click(object sender, EventArgs e)
+        {
+            video.Ctlcontrols.currentPosition = 0;
+            video.Ctlcontrols.play();
+            replay.Visible = false;
+        }
     }
 }

@@ -31,23 +31,24 @@
             this.top = new System.Windows.Forms.Panel();
             this.title = new System.Windows.Forms.Label();
             this.min = new System.Windows.Forms.Button();
-            this.minmax = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
             this.playvid = new System.Windows.Forms.Button();
             this.vidGUI = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.searchBar = new System.Windows.Forms.TextBox();
+            this.selintro = new System.Windows.Forms.Label();
+            this.selthumb = new System.Windows.Forms.PictureBox();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.seltitle = new System.Windows.Forms.Label();
+            this.upl = new System.Windows.Forms.Button();
+            this.refresh = new System.Windows.Forms.Button();
             this.top.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selthumb)).BeginInit();
             this.SuspendLayout();
             // 
             // top
             // 
             this.top.Controls.Add(this.title);
             this.top.Controls.Add(this.min);
-            this.top.Controls.Add(this.minmax);
             this.top.Controls.Add(this.close);
             this.top.Dock = System.Windows.Forms.DockStyle.Top;
             this.top.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -76,27 +77,13 @@
             this.min.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.min.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.min.ForeColor = System.Drawing.SystemColors.Control;
-            this.min.Location = new System.Drawing.Point(842, 0);
+            this.min.Location = new System.Drawing.Point(893, 0);
             this.min.Name = "min";
             this.min.Size = new System.Drawing.Size(51, 33);
             this.min.TabIndex = 2;
             this.min.Text = "_";
             this.min.UseVisualStyleBackColor = true;
-            this.min.Click += new System.EventHandler(this.min_Click);
-            // 
-            // minmax
-            // 
-            this.minmax.Dock = System.Windows.Forms.DockStyle.Right;
-            this.minmax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minmax.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minmax.ForeColor = System.Drawing.SystemColors.Control;
-            this.minmax.Location = new System.Drawing.Point(893, 0);
-            this.minmax.Name = "minmax";
-            this.minmax.Size = new System.Drawing.Size(51, 33);
-            this.minmax.TabIndex = 1;
-            this.minmax.Text = "⬜";
-            this.minmax.UseVisualStyleBackColor = true;
-            this.minmax.Click += new System.EventHandler(this.minmax_Click);
+            this.min.Click += new System.EventHandler(this.Min_Click);
             // 
             // close
             // 
@@ -110,7 +97,7 @@
             this.close.TabIndex = 0;
             this.close.Text = "X";
             this.close.UseVisualStyleBackColor = true;
-            this.close.Click += new System.EventHandler(this.close_Click);
+            this.close.Click += new System.EventHandler(this.Close_Click);
             // 
             // playvid
             // 
@@ -119,11 +106,11 @@
             this.playvid.ForeColor = System.Drawing.SystemColors.Control;
             this.playvid.Location = new System.Drawing.Point(842, 82);
             this.playvid.Name = "playvid";
-            this.playvid.Size = new System.Drawing.Size(141, 38);
+            this.playvid.Size = new System.Drawing.Size(141, 31);
             this.playvid.TabIndex = 3;
             this.playvid.Text = "Play video";
             this.playvid.UseVisualStyleBackColor = true;
-            this.playvid.Click += new System.EventHandler(this.button1_Click);
+            this.playvid.Click += new System.EventHandler(this.PlayVid);
             // 
             // vidGUI
             // 
@@ -137,47 +124,86 @@
             this.vidGUI.Size = new System.Drawing.Size(971, 404);
             this.vidGUI.TabIndex = 4;
             // 
-            // textBox1
+            // searchBar
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Location = new System.Drawing.Point(21, 82);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(237, 31);
-            this.textBox1.TabIndex = 5;
+            this.searchBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.searchBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchBar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBar.ForeColor = System.Drawing.SystemColors.Window;
+            this.searchBar.Location = new System.Drawing.Point(12, 46);
+            this.searchBar.Name = "searchBar";
+            this.searchBar.Size = new System.Drawing.Size(237, 31);
+            this.searchBar.TabIndex = 5;
             // 
-            // label1
+            // selintro
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(703, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 16);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Video selected:";
+            this.selintro.AutoSize = true;
+            this.selintro.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selintro.ForeColor = System.Drawing.SystemColors.Control;
+            this.selintro.Location = new System.Drawing.Point(703, 45);
+            this.selintro.Name = "selintro";
+            this.selintro.Size = new System.Drawing.Size(91, 16);
+            this.selintro.TabIndex = 6;
+            this.selintro.Text = "Video selected:";
             // 
-            // pictureBox1
+            // selthumb
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(706, 65);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.selthumb.Location = new System.Drawing.Point(706, 65);
+            this.selthumb.Name = "selthumb";
+            this.selthumb.Size = new System.Drawing.Size(100, 50);
+            this.selthumb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.selthumb.TabIndex = 7;
+            this.selthumb.TabStop = false;
             // 
-            // button1
+            // searchButton
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(264, 82);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 31);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
+            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchButton.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.searchButton.Location = new System.Drawing.Point(255, 46);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(141, 31);
+            this.searchButton.TabIndex = 8;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
+            // seltitle
+            // 
+            this.seltitle.AutoSize = true;
+            this.seltitle.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seltitle.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.seltitle.Location = new System.Drawing.Point(800, 46);
+            this.seltitle.Name = "seltitle";
+            this.seltitle.Size = new System.Drawing.Size(16, 16);
+            this.seltitle.TabIndex = 9;
+            this.seltitle.Text = "a";
+            // 
+            // upl
+            // 
+            this.upl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.upl.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.upl.ForeColor = System.Drawing.SystemColors.Control;
+            this.upl.Location = new System.Drawing.Point(159, 82);
+            this.upl.Name = "upl";
+            this.upl.Size = new System.Drawing.Size(141, 31);
+            this.upl.TabIndex = 10;
+            this.upl.Text = "Upload Video";
+            this.upl.UseVisualStyleBackColor = true;
+            this.upl.Click += new System.EventHandler(this.upl_Click);
+            // 
+            // refresh
+            // 
+            this.refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refresh.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refresh.ForeColor = System.Drawing.SystemColors.Control;
+            this.refresh.Location = new System.Drawing.Point(12, 82);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(141, 31);
+            this.refresh.TabIndex = 11;
+            this.refresh.Text = "Refresh";
+            this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.refresh_Click);
             // 
             // Main
             // 
@@ -185,20 +211,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(995, 567);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.refresh);
+            this.Controls.Add(this.upl);
+            this.Controls.Add(this.seltitle);
+            this.Controls.Add(this.searchButton);
+            this.Controls.Add(this.selthumb);
+            this.Controls.Add(this.selintro);
+            this.Controls.Add(this.searchBar);
             this.Controls.Add(this.vidGUI);
             this.Controls.Add(this.playvid);
             this.Controls.Add(this.top);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Main";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Main_Load);
             this.top.ResumeLayout(false);
             this.top.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selthumb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,15 +236,17 @@
 
         private System.Windows.Forms.Panel top;
         private System.Windows.Forms.Button min;
-        private System.Windows.Forms.Button minmax;
         private System.Windows.Forms.Button close;
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.Button playvid;
         private System.Windows.Forms.TableLayoutPanel vidGUI;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox searchBar;
+        private System.Windows.Forms.Label selintro;
+        private System.Windows.Forms.PictureBox selthumb;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.Label seltitle;
+        private System.Windows.Forms.Button upl;
+        private System.Windows.Forms.Button refresh;
     }
 }
 
