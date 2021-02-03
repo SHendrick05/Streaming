@@ -14,7 +14,9 @@ namespace Streaming
             foreach (Video vid in vids)
             {
                 Panel template = Template.GetTemplate(i);
-                template.Controls[1].Text = vid.Desc;
+                TextBox dsc = (TextBox)template.Controls[1];
+                string[] lines = vid.Desc.Split(new string[] { @"\n" }, System.StringSplitOptions.None);
+                dsc.Lines = lines.Take(4).ToArray();
                 template.Controls[0].Text = vid.Views.ToString() + " view(s)";
                 template.Controls[2].Text = vid.Title;
                 PictureBox box = (PictureBox)template.Controls[3];

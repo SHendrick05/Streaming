@@ -68,7 +68,7 @@ namespace Streaming
         private void SelVid(object sender, MouseEventArgs e)
         {
             Control sndr = (Control)sender;
-            string nam = sender.GetType().Equals(pList[0]) ? sndr.Name : sndr.Parent.Name;
+            string nam = sender is Panel ? sndr.Name : sndr.Parent.Name;
             int id = int.Parse(nam.Substring(5));
             selectedVid = vids[id];
 
@@ -117,6 +117,7 @@ namespace Streaming
 
         private void refresh_Click(object sender, EventArgs e)
         {
+            vids = VideoLoad.videoList;
             ClearPanels();
             LoadPanelsToGUI();
         }

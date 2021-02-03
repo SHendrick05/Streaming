@@ -175,9 +175,9 @@
             this.seltitle.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.seltitle.Location = new System.Drawing.Point(800, 46);
             this.seltitle.Name = "seltitle";
-            this.seltitle.Size = new System.Drawing.Size(16, 16);
+            this.seltitle.Size = new System.Drawing.Size(37, 16);
             this.seltitle.TabIndex = 9;
-            this.seltitle.Text = "a";
+            this.seltitle.Text = "None";
             // 
             // upl
             // 
