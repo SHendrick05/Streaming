@@ -123,7 +123,7 @@
             this.vidGUI.Location = new System.Drawing.Point(12, 126);
             this.vidGUI.Name = "vidGUI";
             this.vidGUI.RowCount = 1;
-            this.vidGUI.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 404F));
+            this.vidGUI.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.vidGUI.Size = new System.Drawing.Size(971, 404);
             this.vidGUI.TabIndex = 4;
             // 

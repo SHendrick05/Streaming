@@ -42,7 +42,9 @@ namespace Streaming
             WindowState = WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
         }
 
-        private void UploadButton_Click(object sender, EventArgs e)
+        //
+
+        private void UploadButton_Click(object sender, EventArgs e) // On click, shows confirmation Y/N
         {
             Y_button.Visible = true;
             N_button.Visible = true;
@@ -50,14 +52,14 @@ namespace Streaming
             error.Visible = false;
         }
 
-        private void N_button_Click(object sender, EventArgs e)
+        private void N_button_Click(object sender, EventArgs e) // No confirmation
         {
             Y_button.Visible = false;
             N_button.Visible = false;
             Confirmation.Visible = false;
         }
 
-        private void Y_button_Click(object sender, EventArgs e)
+        private void Y_button_Click(object sender, EventArgs e) // The button that uploads the video
         {
             string title = TitleBox.Text;
             string desc = string.Join(@"\n", DescBox.Lines);
@@ -65,7 +67,7 @@ namespace Streaming
             string filName = Path.GetFileName(path);
             if (string.IsNullOrWhiteSpace(title)
                 || string.IsNullOrWhiteSpace(desc)
-                || string.IsNullOrWhiteSpace(path))
+                || string.IsNullOrWhiteSpace(path)) // Makes sure no fields are empty.
             {
                 Y_button.Visible = false;
                 N_button.Visible = false;
@@ -73,7 +75,7 @@ namespace Streaming
                 error.Visible = true;
             }
             string fullPath = @"videos\";
-            if (File.Exists(@"videos\" + filName))
+            if (File.Exists(@"videos\" + filName)) // Naming rules to prevent duplicates
             {
                 string fil, xt;
                 int i = 1;
@@ -87,8 +89,8 @@ namespace Streaming
             }
             else fullPath += filName;
             File.Copy(path, fullPath);
-            VideoLoad.videoList.Add(new Video(fullPath, title, 0, desc));
-            VideoLoad.Save();
+            VideoLoad.videoList.Add(new Video(fullPath, title, 0, desc)); // Upload the video and add to vid list
+            VideoLoad.Save(); // Save to list.txt
             success.Visible = true;
             Thread.Sleep(500);
             Close();
@@ -98,13 +100,13 @@ namespace Streaming
         {
             using (OpenFileDialog dia = new OpenFileDialog())
             {
-                dia.InitialDirectory = @"C:\"; // .mp4.avi.mov.webm.flv.wmv.mpeg4
-                dia.Filter = "Videos|*.mp4;*.avi;*.mov;*.webm;*.flv|MP4|*.mp4|AVI|*.avi|MOV|*.mov|WEBM|*.webm|FLV|*.flv";
+                dia.InitialDirectory = @"C:\"; // .mp4.avi.mov.webm.flv
+                dia.Filter = "Videos|*.mp4;*.avi;*.mov;*.webm;*.flv|MP4|*.mp4|AVI|*.avi|MOV|*.mov|WEBM|*.webm|FLV|*.flv"; // Suitable video types
                 dia.RestoreDirectory = true;
                 
                 if (dia.ShowDialog() == DialogResult.OK)
                 {
-                    PathBox.Text = dia.FileName;
+                    PathBox.Text = dia.FileName; // Upload path to the textbox
                 }
             }
         }

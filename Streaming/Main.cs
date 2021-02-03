@@ -77,9 +77,9 @@ namespace Streaming
         }
 
         // Video load + Search
-        private void LoadPanelsToGUI()
+        private void LoadPanelsToGUI() // Takes a list of videos and puts it on the GUI for the user to select from
         {
-            pList = Search.LoadVidsIntoGUI(vids);
+            pList = Search.LoadVidsIntoGUI(vids); // Get videos
             int i = 0;
             RowStyle temp1 = vidGUI.RowStyles[0];
             vidGUI.RowStyles.Add(new RowStyle(temp1.SizeType, 150));
@@ -91,14 +91,14 @@ namespace Streaming
                 p.Controls[2].MouseClick += new MouseEventHandler(SelVid);
                 p.Controls[3].MouseClick += new MouseEventHandler(SelVid);
                 p.MouseClick += new MouseEventHandler(SelVid);
-                vidGUI.Controls.Add(p, 0, i);
+                vidGUI.Controls.Add(p, 0, i); // Add this panel to the list
                 RowStyle temp = vidGUI.RowStyles[0];
                 vidGUI.RowStyles.Add(new RowStyle(temp.SizeType, 150));
                 i++;
             }
         }
 
-        private void ClearPanels()
+        private void ClearPanels() // Clear panels (for refresh + search)
         {
             foreach (Panel p in pList)
             {
@@ -108,21 +108,21 @@ namespace Streaming
             vidGUI.RowStyles.Add(new RowStyle(SizeType.Absolute, 150));
         }
 
-        private void SearchButton_Click(object sender, EventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e) // Interface for the search algorithm
         {
             vids = Search.SearchVids(searchBar.Text, VideoLoad.videoList);
             ClearPanels();
             LoadPanelsToGUI();
         }
 
-        private void refresh_Click(object sender, EventArgs e)
+        private void refresh_Click(object sender, EventArgs e) // Refresh video list
         {
             vids = VideoLoad.videoList;
             ClearPanels();
             LoadPanelsToGUI();
         }
 
-        private void upl_Click(object sender, EventArgs e)
+        private void upl_Click(object sender, EventArgs e) // Upload
         {
             Upload upl = new Upload();
             upl.ShowDialog();

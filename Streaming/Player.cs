@@ -69,7 +69,7 @@ namespace Streaming
         // Timers
         private Timer timer2;
         private Timer timer1;
-        bool debounce = false;
+        bool debounce = false; 
         private void InitTimer()
         {
             timer1 = new Timer();
@@ -86,7 +86,7 @@ namespace Streaming
         }
 
         // Seeking
-        private void TrackBar1_Scroll(object sender, EventArgs e)
+        private void TrackBar1_Scroll(object sender, EventArgs e) // Timers are to minimise lag when seeking throughout video
         {
             if (debounce == true) return;
             debounce = true;
@@ -123,13 +123,13 @@ namespace Streaming
 
 
 
-
+        // Progress bar
         private void Update(object sender, EventArgs e)
         {
             int pos = (int)(video.Ctlcontrols.currentPosition * 10);
             bool comp = pos <= seek.Maximum;
             seek.Value = comp ? pos : seek.Maximum;
-            if (!comp)
+            if (!comp) // If video ended, wait 0.5s and show replay button
             {
                 play.Text = "Play";
                 Thread.Sleep(500);
@@ -137,14 +137,7 @@ namespace Streaming
             }
         }
 
-        private void Fs_Click(object sender, EventArgs e)
-        {
-            video.fullScreen = !video.fullScreen;
-            if (play.Text == "Pause") video.Ctlcontrols.play();
-            else video.Ctlcontrols.pause();
-        }
-
-        private void Replay_Click(object sender, EventArgs e)
+        private void Replay_Click(object sender, EventArgs e) // Replay button
         {
             video.Ctlcontrols.currentPosition = 0;
             video.Ctlcontrols.play();

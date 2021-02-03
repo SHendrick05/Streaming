@@ -7,13 +7,15 @@ namespace Streaming
     public static class Search
     {
 
-        internal static List<Panel> LoadVidsIntoGUI(List<Video> vids)
+        internal static List<Panel> LoadVidsIntoGUI(List<Video> vids) // Convert a list of Video objects into a list of panels to be put in the GUI
         {
             List<Panel> results = new List<Panel>();
             int i = 0;
             foreach (Video vid in vids)
             {
-                Panel template = Template.GetTemplate(i);
+                Panel template = Template.GetTemplate(i); // Get a template panel
+
+                // Customise the title/desc/etc. to the video
                 TextBox dsc = (TextBox)template.Controls[1];
                 string[] lines = vid.Desc.Split(new string[] { @"\n" }, System.StringSplitOptions.None);
                 dsc.Lines = lines.Take(4).ToArray();
@@ -28,11 +30,11 @@ namespace Streaming
             return results;
         }
 
-        internal static List<Video> SearchVids(string param, List<Video> vids)
+        internal static List<Video> SearchVids(string param, List<Video> vids) // Search algorithm
         {
             List<Video> result;
             List<string> searchParams = param.Split(' ').ToList();
-            foreach (Video vid in vids)
+            foreach (Video vid in vids) // Assign each video a "relevance score" to the search - word in title +2 pts, word in description +1 pt
             {
                 vid.SScore = 0;
                 foreach (string sP in searchParams)
@@ -44,8 +46,8 @@ namespace Streaming
                 }
             }
             result = vids.Where(i => i.SScore != 0).ToList();
-            result = result.OrderByDescending(i => i.SScore).ToList();
-            return result;
+            result = result.OrderByDescending(i => i.SScore).ToList(); // Sort by the relevance score
+            return result; // Return the sorted list
         }
     }
 
@@ -53,7 +55,7 @@ namespace Streaming
 
     public static class Template
     {
-        internal static Panel GetTemplate(int i)
+        internal static Panel GetTemplate(int i) // Panel template to add videos to the list with
         {
             Panel tvideo0 = new Panel();
             Label tviewcount0 = new Label();
