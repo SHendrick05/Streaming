@@ -41,6 +41,7 @@
             this.seltitle = new System.Windows.Forms.Label();
             this.upl = new System.Windows.Forms.Button();
             this.refresh = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selthumb)).BeginInit();
             this.SuspendLayout();
@@ -115,8 +116,10 @@
             // vidGUI
             // 
             this.vidGUI.AutoScroll = true;
+            this.vidGUI.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.vidGUI.ColumnCount = 1;
             this.vidGUI.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.vidGUI.ForeColor = System.Drawing.SystemColors.Control;
             this.vidGUI.Location = new System.Drawing.Point(12, 126);
             this.vidGUI.Name = "vidGUI";
             this.vidGUI.RowCount = 1;
@@ -205,12 +208,24 @@
             this.refresh.UseVisualStyleBackColor = true;
             this.refresh.Click += new System.EventHandler(this.refresh_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label1.Location = new System.Drawing.Point(757, 537);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(226, 21);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Made by Sean Hendrick 10P";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(995, 567);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.refresh);
             this.Controls.Add(this.upl);
             this.Controls.Add(this.seltitle);
@@ -247,6 +262,7 @@
         private System.Windows.Forms.Label seltitle;
         private System.Windows.Forms.Button upl;
         private System.Windows.Forms.Button refresh;
+        private System.Windows.Forms.Label label1;
     }
 }
 
