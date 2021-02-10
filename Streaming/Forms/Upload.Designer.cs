@@ -46,6 +46,7 @@ namespace Streaming
             this.Confirmation = new System.Windows.Forms.Label();
             this.error = new System.Windows.Forms.Label();
             this.success = new System.Windows.Forms.Label();
+            this.AdultCheck = new System.Windows.Forms.CheckBox();
             this.top.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -256,12 +257,27 @@ namespace Streaming
             this.success.Text = "Video uploaded successfully!";
             this.success.Visible = false;
             // 
+            // AdultCheck
+            // 
+            this.AdultCheck.AutoSize = true;
+            this.AdultCheck.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AdultCheck.Font = new System.Drawing.Font("Century Gothic", 14.25F);
+            this.AdultCheck.ForeColor = System.Drawing.SystemColors.Control;
+            this.AdultCheck.Location = new System.Drawing.Point(153, 319);
+            this.AdultCheck.Name = "AdultCheck";
+            this.AdultCheck.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.AdultCheck.Size = new System.Drawing.Size(133, 26);
+            this.AdultCheck.TabIndex = 15;
+            this.AdultCheck.Text = "Adult only?";
+            this.AdultCheck.UseVisualStyleBackColor = true;
+            // 
             // Upload
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(666, 450);
+            this.Controls.Add(this.AdultCheck);
             this.Controls.Add(this.success);
             this.Controls.Add(this.error);
             this.Controls.Add(this.Confirmation);
@@ -305,5 +321,6 @@ namespace Streaming
         private System.Windows.Forms.Label Confirmation;
         private System.Windows.Forms.Label error;
         private System.Windows.Forms.Label success;
+        private System.Windows.Forms.CheckBox AdultCheck;
     }
 }

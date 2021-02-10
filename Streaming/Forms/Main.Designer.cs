@@ -42,6 +42,7 @@
             this.upl = new System.Windows.Forms.Button();
             this.refresh = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selthumb)).BeginInit();
             this.SuspendLayout();
@@ -123,7 +124,7 @@
             this.vidGUI.Location = new System.Drawing.Point(12, 126);
             this.vidGUI.Name = "vidGUI";
             this.vidGUI.RowCount = 1;
-            this.vidGUI.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.vidGUI.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 407F));
             this.vidGUI.Size = new System.Drawing.Size(971, 404);
             this.vidGUI.TabIndex = 4;
             // 
@@ -219,12 +220,26 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Made by Sean Hendrick 10P";
             // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Location = new System.Drawing.Point(482, 65);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(180, 31);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "LOGIN DEBUG";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(995, 567);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.refresh);
             this.Controls.Add(this.upl);
@@ -263,6 +278,7 @@
         private System.Windows.Forms.Button upl;
         private System.Windows.Forms.Button refresh;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

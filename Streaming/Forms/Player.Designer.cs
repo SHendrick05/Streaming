@@ -39,7 +39,11 @@ namespace Streaming
             this.play = new System.Windows.Forms.Button();
             this.stop = new System.Windows.Forms.Button();
             this.seek = new System.Windows.Forms.TrackBar();
+            this.ThumbsDown = new System.Windows.Forms.Button();
+            this.ThumbsUp = new System.Windows.Forms.Button();
             this.replay = new System.Windows.Forms.Button();
+            this.UpLabel = new System.Windows.Forms.Label();
+            this.DownLabel = new System.Windows.Forms.Label();
             this.top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.video)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seek)).BeginInit();
@@ -147,6 +151,33 @@ namespace Streaming
             this.seek.Scroll += new System.EventHandler(this.TrackBar1_Scroll);
             this.seek.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Seek_MouseUp);
             // 
+            // ThumbsDown
+            // 
+            this.ThumbsDown.BackColor = System.Drawing.Color.Transparent;
+            this.ThumbsDown.BackgroundImage = global::Streaming.Properties.Resources.down_ol;
+            this.ThumbsDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ThumbsDown.FlatAppearance.BorderSize = 0;
+            this.ThumbsDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ThumbsDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ThumbsDown.Location = new System.Drawing.Point(1029, 346);
+            this.ThumbsDown.Name = "ThumbsDown";
+            this.ThumbsDown.Size = new System.Drawing.Size(84, 84);
+            this.ThumbsDown.TabIndex = 9;
+            this.ThumbsDown.UseVisualStyleBackColor = false;
+            // 
+            // ThumbsUp
+            // 
+            this.ThumbsUp.BackgroundImage = global::Streaming.Properties.Resources.up_ol;
+            this.ThumbsUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ThumbsUp.FlatAppearance.BorderSize = 0;
+            this.ThumbsUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ThumbsUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
+            this.ThumbsUp.Location = new System.Drawing.Point(1029, 190);
+            this.ThumbsUp.Name = "ThumbsUp";
+            this.ThumbsUp.Size = new System.Drawing.Size(84, 84);
+            this.ThumbsUp.TabIndex = 8;
+            this.ThumbsUp.UseVisualStyleBackColor = true;
+            // 
             // replay
             // 
             this.replay.BackColor = System.Drawing.Color.Black;
@@ -162,12 +193,38 @@ namespace Streaming
             this.replay.Visible = false;
             this.replay.Click += new System.EventHandler(this.Replay_Click);
             // 
+            // UpLabel
+            // 
+            this.UpLabel.AutoSize = true;
+            this.UpLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(14)))));
+            this.UpLabel.Location = new System.Drawing.Point(1025, 297);
+            this.UpLabel.Name = "UpLabel";
+            this.UpLabel.Size = new System.Drawing.Size(49, 21);
+            this.UpLabel.TabIndex = 18;
+            this.UpLabel.Text = "100%";
+            // 
+            // DownLabel
+            // 
+            this.DownLabel.AutoSize = true;
+            this.DownLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DownLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.DownLabel.Location = new System.Drawing.Point(1074, 297);
+            this.DownLabel.Name = "DownLabel";
+            this.DownLabel.Size = new System.Drawing.Size(49, 21);
+            this.DownLabel.TabIndex = 19;
+            this.DownLabel.Text = "100%";
+            // 
             // Player
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(1125, 649);
+            this.Controls.Add(this.DownLabel);
+            this.Controls.Add(this.UpLabel);
+            this.Controls.Add(this.ThumbsDown);
+            this.Controls.Add(this.ThumbsUp);
             this.Controls.Add(this.replay);
             this.Controls.Add(this.play);
             this.Controls.Add(this.stop);
@@ -197,5 +254,9 @@ namespace Streaming
         private System.Windows.Forms.Button stop;
         private System.Windows.Forms.TrackBar seek;
         private System.Windows.Forms.Button replay;
+        private System.Windows.Forms.Button ThumbsUp;
+        private System.Windows.Forms.Button ThumbsDown;
+        private System.Windows.Forms.Label UpLabel;
+        private System.Windows.Forms.Label DownLabel;
     }
 }

@@ -24,12 +24,11 @@ namespace Streaming
         }
 
         // Init
-        public Main()
+        public Main(User usr)
         {
+            CurrentUser = usr;
             InitializeComponent();
-            VideoLoad.Init();
-
-            vids = VideoLoad.videoList;
+            vids = Videos.videoList;
             LoadPanelsToGUI();
 
         }
@@ -37,7 +36,7 @@ namespace Streaming
         // Top bar
         private void Close_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void Minmax_Click(object sender, EventArgs e)
@@ -54,7 +53,7 @@ namespace Streaming
         {
             if (selectedVid == null) return;
             selectedVid.Views++;
-            VideoLoad.Save();
+            Videos.Save();
             Player plr = new Player(selectedVid);
             plr.ShowDialog();
         }
@@ -64,6 +63,7 @@ namespace Streaming
         internal Video selectedVid = null;
         internal List<Video> vids;
         internal List<Panel> pList;
+        internal User CurrentUser = null;
 
         private void SelVid(object sender, MouseEventArgs e)
         {
@@ -110,14 +110,14 @@ namespace Streaming
 
         private void SearchButton_Click(object sender, EventArgs e) // Interface for the search algorithm
         {
-            vids = Search.SearchVids(searchBar.Text, VideoLoad.videoList);
+            vids = Search.SearchVids(searchBar.Text, Videos.videoList);
             ClearPanels();
             LoadPanelsToGUI();
         }
 
         private void refresh_Click(object sender, EventArgs e) // Refresh video list
         {
-            vids = VideoLoad.videoList;
+            vids = Videos.videoList;
             ClearPanels();
             LoadPanelsToGUI();
         }
@@ -126,6 +126,12 @@ namespace Streaming
         {
             Upload upl = new Upload();
             upl.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Login lgn = new Login();
+            lgn.ShowDialog();
         }
     }
 }

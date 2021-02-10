@@ -6,6 +6,13 @@ using Timer = System.Windows.Forms.Timer;
 
 namespace Streaming
 {
+    public enum lState
+    {
+        DISLIKE,
+        LIKE,
+        NONE
+    }
+
     public partial class Player : Form
     {
         // Draggable top
