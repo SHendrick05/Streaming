@@ -73,6 +73,7 @@ namespace Streaming
                 N_button.Visible = false;
                 Confirmation.Visible = false;
                 error.Visible = true;
+                return;
             }
             string fullPath = @"videos\";
             if (File.Exists(@"videos\" + filName)) // Naming rules to prevent duplicates
@@ -89,10 +90,10 @@ namespace Streaming
             }
             else fullPath += filName;
             File.Copy(path, fullPath);
-            VideoLoad.videoList.Add(new Video(fullPath, title, 0, desc)); // Upload the video and add to vid list
-            VideoLoad.Save(); // Save to list.txt
+            Videos.videoList.Add(new Video(fullPath, title, desc, AdultCheck.Checked)); // Upload the video and add to vid list
+            Videos.Save(); // Save to list.json
             success.Visible = true;
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
             Close();
         }
 

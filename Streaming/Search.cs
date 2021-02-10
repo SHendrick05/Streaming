@@ -11,6 +11,7 @@ namespace Streaming
         {
             List<Panel> results = new List<Panel>();
             int i = 0;
+            if (vids.Count != 0)
             foreach (Video vid in vids)
             {
                 Panel template = Template.GetTemplate(i); // Get a template panel
