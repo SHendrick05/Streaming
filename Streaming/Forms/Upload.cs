@@ -3,8 +3,6 @@ using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Streaming
 {
@@ -90,7 +88,8 @@ namespace Streaming
             }
             else fullPath += filName;
             File.Copy(path, fullPath);
-            Videos.videoList.Add(new Video(fullPath, title, desc, AdultCheck.Checked)); // Upload the video and add to vid list
+            Video newVid = new Video(fullPath, title, desc, Search.currUser.Username, AdultCheck.Checked);
+            Videos.videoList.Add(newVid); // Upload the video and add to vid list
             Videos.Save(); // Save to list.json
             success.Visible = true;
             Thread.Sleep(1000);

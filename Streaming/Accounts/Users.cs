@@ -18,7 +18,7 @@ namespace Streaming
         static Users()
         {
             Directory.CreateDirectory("accounts");
-            if (!File.Exists(fPath));
+            if (!File.Exists(fPath))
             {
                 FileStream str = File.Create(fPath); // Create the lists.json if not exist
                 str.Close();

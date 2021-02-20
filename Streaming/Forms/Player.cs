@@ -37,12 +37,25 @@ namespace Streaming
             InitializeComponent();
             InitTimer();
             video.URL = vid.Path;
+            currVid = vid;
+            if (Search.currUser.Ratings.ContainsKey(currVid.Path))
+            {
+                if (Search.currUser.Ratings[currVid.Path] == lState.DISLIKE)
+                    ThumbsDown.BackgroundImage = Properties.Resources.down_fl;
+                else if (Search.currUser.Ratings[currVid.Path] == lState.LIKE)
+                    ThumbsUp.BackgroundImage = Properties.Resources.up_fl;
+            } 
+            else Search.currUser.Rate(currVid, lState.NONE);
         }
+
+        public Video currVid;
 
         // Top buttons
         private void Close_Click(object sender, EventArgs e)
         {
             video.Ctlcontrols.stop();
+            Users.Save();
+            Videos.Save();
             Close();
         }
 
@@ -149,6 +162,40 @@ namespace Streaming
             video.Ctlcontrols.currentPosition = 0;
             video.Ctlcontrols.play();
             replay.Visible = false;
+        }
+
+        private void ThumbsUp_Click(object sender, EventArgs e)
+        {
+            if (Search.currUser.Ratings[currVid.Path] == lState.LIKE)
+            {
+                Search.currUser.Rate(currVid, lState.NONE);
+                ThumbsUp.BackgroundImage = Streaming.Properties.Resources.up_ol;
+                currVid.Likes--;
+            }
+            else
+            {
+                Search.currUser.Rate(currVid, lState.LIKE);
+                ThumbsUp.BackgroundImage = Streaming.Properties.Resources.up_fl;
+                ThumbsDown.BackgroundImage = Streaming.Properties.Resources.down_ol;
+                currVid.Likes++;
+            }
+        }
+
+        private void ThumbsDown_Click(object sender, EventArgs e)
+        {
+            if (Search.currUser.Ratings[currVid.Path] == lState.DISLIKE)
+            {
+                Search.currUser.Rate(currVid, lState.NONE);
+                ThumbsDown.BackgroundImage = Streaming.Properties.Resources.down_ol;
+                currVid.Dislikes--;
+            }
+            else
+            {
+                Search.currUser.Rate(currVid, lState.DISLIKE);
+                ThumbsDown.BackgroundImage = Streaming.Properties.Resources.down_fl;
+                ThumbsUp.BackgroundImage = Streaming.Properties.Resources.up_ol;
+                currVid.Dislikes++;
+            }
         }
     }
 }

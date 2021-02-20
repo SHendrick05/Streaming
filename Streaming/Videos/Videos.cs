@@ -27,9 +27,7 @@ namespace Streaming
                 if (!".mp4.avi.mov.webm.flv.wmv.mpeg4".Contains(Path.GetExtension(file))) continue;
                 if (!paths.Contains(file))
                 {
-                    string title = file.Substring(7, file.Length - 11);
-                    videoList.Add(new Video(file, title, "Video"));
-                    Save();
+                    File.Delete(file);
                 }
             }
         }

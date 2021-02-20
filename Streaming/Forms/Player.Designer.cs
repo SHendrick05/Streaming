@@ -164,6 +164,7 @@ namespace Streaming
             this.ThumbsDown.Size = new System.Drawing.Size(84, 84);
             this.ThumbsDown.TabIndex = 9;
             this.ThumbsDown.UseVisualStyleBackColor = false;
+            this.ThumbsDown.Click += new System.EventHandler(this.ThumbsDown_Click);
             // 
             // ThumbsUp
             // 
@@ -177,6 +178,7 @@ namespace Streaming
             this.ThumbsUp.Size = new System.Drawing.Size(84, 84);
             this.ThumbsUp.TabIndex = 8;
             this.ThumbsUp.UseVisualStyleBackColor = true;
+            this.ThumbsUp.Click += new System.EventHandler(this.ThumbsUp_Click);
             // 
             // replay
             // 
