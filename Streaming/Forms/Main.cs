@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Streaming
 {
@@ -29,8 +30,14 @@ namespace Streaming
             CurrentUser = usr;
             InitializeComponent();
             vids = Videos.videoList;
+            if (usr.access == Level.CHILD)
+                vids = vids.Where(x => x.AdultOnly == false).ToList();
             LoadPanelsToGUI();
-
+            foreach(Video vid in Videos.videoList)
+            {
+                if (!usr.Ratings.ContainsKey(vid.Path))
+                    usr.Rate(vid, lState.NONE);
+            }
         }
 
         // Top bar
@@ -111,6 +118,8 @@ namespace Streaming
         private void SearchButton_Click(object sender, EventArgs e) // Interface for the search algorithm
         {
             vids = Search.SearchVids(searchBar.Text, Videos.videoList);
+            if (CurrentUser.access == Level.CHILD)
+                vids = vids.Where(x => x.AdultOnly == false).ToList();
             ClearPanels();
             LoadPanelsToGUI();
         }
@@ -118,6 +127,8 @@ namespace Streaming
         private void refresh_Click(object sender, EventArgs e) // Refresh video list
         {
             vids = Videos.videoList;
+            if (CurrentUser.access == Level.CHILD)
+                vids = vids.Where(x => x.AdultOnly == false).ToList();
             ClearPanels();
             LoadPanelsToGUI();
         }
@@ -131,7 +142,8 @@ namespace Streaming
         private void button1_Click(object sender, EventArgs e)
         {
             Login lgn = new Login();
-            lgn.ShowDialog();
+            lgn.Show();
+            Close();
         }
     }
 }

@@ -63,6 +63,16 @@ namespace Streaming.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap down_fl {
+            get {
+                object obj = ResourceManager.GetObject("down_fl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap down_ol {
             get {
                 object obj = ResourceManager.GetObject("down_ol", resourceCulture);
@@ -76,6 +86,16 @@ namespace Streaming.Properties {
         internal static System.Drawing.Bitmap replay {
             get {
                 object obj = ResourceManager.GetObject("replay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap up_fl {
+            get {
+                object obj = ResourceManager.GetObject("up_fl", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

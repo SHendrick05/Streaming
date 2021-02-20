@@ -22,7 +22,7 @@ namespace Streaming
             Ratings = new Dictionary<string, lState>();
             foreach(Video vid in Videos.videoList)
             {
-                Ratings.Add(vid.Path, lState.NONE);
+                Rate(vid, lState.NONE);
             }
         }
 
@@ -31,8 +31,8 @@ namespace Streaming
         }
 
         public string Username { get; set; }
-        internal string Hash { get; set; }
-        internal string Salt { get; set; }
+        public string Hash { get; set; }
+        public string Salt { get; set; }
         public DateTime DOB { get; set; }
         public Dictionary<string, lState> Ratings { get; set; }
 

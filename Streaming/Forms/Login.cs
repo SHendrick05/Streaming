@@ -28,6 +28,7 @@ namespace Streaming
 
         public Login()
         {
+            _ = Videos.videoList;
             InitializeComponent();
         }
 
@@ -35,7 +36,7 @@ namespace Streaming
         // Top bar
         private void close_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void min_Click(object sender, EventArgs e)
@@ -167,6 +168,7 @@ namespace Streaming
 
         private void LoadAccount(User usr)
         {
+            Search.currUser = usr;
             Main mn = new Main(usr);
             Hide();
             mn.Show();
@@ -189,7 +191,7 @@ namespace Streaming
                 return 1;
             else return 0;
         }
-            
+
 
         private void LoginButton_Click(object sender, EventArgs e)
         {

@@ -1,4 +1,6 @@
-﻿namespace Streaming
+﻿using System.Windows.Forms;
+
+namespace Streaming
 {
     partial class Main
     {
@@ -124,7 +126,7 @@
             this.vidGUI.Location = new System.Drawing.Point(12, 126);
             this.vidGUI.Name = "vidGUI";
             this.vidGUI.RowCount = 1;
-            this.vidGUI.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 407F));
+            this.vidGUI.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 412F));
             this.vidGUI.Size = new System.Drawing.Size(971, 404);
             this.vidGUI.TabIndex = 4;
             // 
@@ -225,11 +227,11 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(482, 65);
+            this.button1.Location = new System.Drawing.Point(460, 82);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(180, 31);
             this.button1.TabIndex = 13;
-            this.button1.Text = "LOGIN DEBUG";
+            this.button1.Text = "Log out";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
