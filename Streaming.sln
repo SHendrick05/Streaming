@@ -5,16 +5,32 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Streaming", "Streaming\Streaming.csproj", "{75CC40AB-2753-4571-A9CF-DAC705B1EF06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "Tools\Tools.csproj", "{1A599F5B-1910-4768-B185-9CAA90AE8462}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{75CC40AB-2753-4571-A9CF-DAC705B1EF06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{75CC40AB-2753-4571-A9CF-DAC705B1EF06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75CC40AB-2753-4571-A9CF-DAC705B1EF06}.Debug|x86.ActiveCfg = Debug|x86
+		{75CC40AB-2753-4571-A9CF-DAC705B1EF06}.Debug|x86.Build.0 = Debug|x86
 		{75CC40AB-2753-4571-A9CF-DAC705B1EF06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75CC40AB-2753-4571-A9CF-DAC705B1EF06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75CC40AB-2753-4571-A9CF-DAC705B1EF06}.Release|x86.ActiveCfg = Release|x86
+		{75CC40AB-2753-4571-A9CF-DAC705B1EF06}.Release|x86.Build.0 = Release|x86
+		{1A599F5B-1910-4768-B185-9CAA90AE8462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A599F5B-1910-4768-B185-9CAA90AE8462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A599F5B-1910-4768-B185-9CAA90AE8462}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1A599F5B-1910-4768-B185-9CAA90AE8462}.Debug|x86.Build.0 = Debug|Any CPU
+		{1A599F5B-1910-4768-B185-9CAA90AE8462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A599F5B-1910-4768-B185-9CAA90AE8462}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A599F5B-1910-4768-B185-9CAA90AE8462}.Release|x86.ActiveCfg = Release|Any CPU
+		{1A599F5B-1910-4768-B185-9CAA90AE8462}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

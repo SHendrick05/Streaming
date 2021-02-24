@@ -19,14 +19,14 @@ namespace Streaming
             Hash = PWHash;
             Salt = PWSalt;
             DOB = BirthDate;
-            Ratings = new Dictionary<string, lState>();
+            Ratings = new Dictionary<string, LState>();
             foreach(Video vid in Videos.videoList)
             {
-                Rate(vid, lState.NONE);
+                Rate(vid, LState.NONE);
             }
         }
 
-        public Level access {
+        public Level Access {
             get => (DateTime.Today - DOB).TotalDays > 6570 ? Level.ADULT : Level.CHILD;
         }
 
@@ -34,9 +34,9 @@ namespace Streaming
         public string Hash { get; set; }
         public string Salt { get; set; }
         public DateTime DOB { get; set; }
-        public Dictionary<string, lState> Ratings { get; set; }
+        public Dictionary<string, LState> Ratings { get; set; }
 
-        public void Rate(Video vid, lState rating)
+        public void Rate(Video vid, LState rating)
         {
             Ratings[vid.Path] = rating;
         }

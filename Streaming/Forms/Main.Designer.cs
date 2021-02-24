@@ -43,8 +43,8 @@ namespace Streaming
             this.seltitle = new System.Windows.Forms.Label();
             this.upl = new System.Windows.Forms.Button();
             this.refresh = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Credit = new System.Windows.Forms.Label();
+            this.LogOutButton = new System.Windows.Forms.Button();
             this.top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selthumb)).BeginInit();
             this.SuspendLayout();
@@ -126,7 +126,7 @@ namespace Streaming
             this.vidGUI.Location = new System.Drawing.Point(12, 126);
             this.vidGUI.Name = "vidGUI";
             this.vidGUI.RowCount = 1;
-            this.vidGUI.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 412F));
+            this.vidGUI.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 414F));
             this.vidGUI.Size = new System.Drawing.Size(971, 404);
             this.vidGUI.TabIndex = 4;
             // 
@@ -196,7 +196,7 @@ namespace Streaming
             this.upl.TabIndex = 10;
             this.upl.Text = "Upload Video";
             this.upl.UseVisualStyleBackColor = true;
-            this.upl.Click += new System.EventHandler(this.upl_Click);
+            this.upl.Click += new System.EventHandler(this.Upl_Click);
             // 
             // refresh
             // 
@@ -209,31 +209,31 @@ namespace Streaming
             this.refresh.TabIndex = 11;
             this.refresh.Text = "Refresh";
             this.refresh.UseVisualStyleBackColor = true;
-            this.refresh.Click += new System.EventHandler(this.refresh_Click);
+            this.refresh.Click += new System.EventHandler(this.Refresh_Click);
             // 
-            // label1
+            // Credit
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(757, 537);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(226, 21);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Made by Sean Hendrick 10P";
+            this.Credit.AutoSize = true;
+            this.Credit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Credit.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.Credit.Location = new System.Drawing.Point(757, 537);
+            this.Credit.Name = "Credit";
+            this.Credit.Size = new System.Drawing.Size(226, 21);
+            this.Credit.TabIndex = 12;
+            this.Credit.Text = "Made by Sean Hendrick 10P";
             // 
-            // button1
+            // LogOutButton
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(460, 82);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 31);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Log out";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.LogOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogOutButton.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogOutButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.LogOutButton.Location = new System.Drawing.Point(460, 82);
+            this.LogOutButton.Name = "LogOutButton";
+            this.LogOutButton.Size = new System.Drawing.Size(180, 31);
+            this.LogOutButton.TabIndex = 13;
+            this.LogOutButton.Text = "Log out";
+            this.LogOutButton.UseVisualStyleBackColor = true;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOut);
             // 
             // Main
             // 
@@ -241,8 +241,8 @@ namespace Streaming
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(995, 567);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LogOutButton);
+            this.Controls.Add(this.Credit);
             this.Controls.Add(this.refresh);
             this.Controls.Add(this.upl);
             this.Controls.Add(this.seltitle);
@@ -279,8 +279,8 @@ namespace Streaming
         private System.Windows.Forms.Label seltitle;
         private System.Windows.Forms.Button upl;
         private System.Windows.Forms.Button refresh;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label Credit;
+        private System.Windows.Forms.Button LogOutButton;
     }
 }
 

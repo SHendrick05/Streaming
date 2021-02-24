@@ -99,7 +99,7 @@ namespace Streaming
             this.min.TabIndex = 2;
             this.min.Text = "_";
             this.min.UseVisualStyleBackColor = true;
-            this.min.Click += new System.EventHandler(this.min_Click);
+            this.min.Click += new System.EventHandler(this.Min_Click);
             // 
             // close
             // 
@@ -113,7 +113,7 @@ namespace Streaming
             this.close.TabIndex = 0;
             this.close.Text = "X";
             this.close.UseVisualStyleBackColor = true;
-            this.close.Click += new System.EventHandler(this.close_Click);
+            this.close.Click += new System.EventHandler(this.Close_Click);
             // 
             // regTab
             // 
@@ -207,7 +207,7 @@ namespace Streaming
             this.monthBox.Name = "monthBox";
             this.monthBox.Size = new System.Drawing.Size(90, 29);
             this.monthBox.TabIndex = 26;
-            this.monthBox.SelectedIndexChanged += new System.EventHandler(this.monthChanged);
+            this.monthBox.SelectedIndexChanged += new System.EventHandler(this.MonthChanged);
             // 
             // yearBox
             // 
@@ -554,7 +554,7 @@ namespace Streaming
             this.MainTab.SelectedIndex = 0;
             this.MainTab.Size = new System.Drawing.Size(800, 413);
             this.MainTab.TabIndex = 16;
-            this.MainTab.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
+            this.MainTab.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.TabControl1_DrawItem);
             // 
             // Login
             // 

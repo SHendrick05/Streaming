@@ -88,7 +88,7 @@ namespace Streaming
             this.min.TabIndex = 2;
             this.min.Text = "_";
             this.min.UseVisualStyleBackColor = true;
-            this.min.Click += new System.EventHandler(this.min_Click);
+            this.min.Click += new System.EventHandler(this.Min_Click);
             // 
             // close
             // 
@@ -102,7 +102,7 @@ namespace Streaming
             this.close.TabIndex = 0;
             this.close.Text = "X";
             this.close.UseVisualStyleBackColor = true;
-            this.close.Click += new System.EventHandler(this.close_Click);
+            this.close.Click += new System.EventHandler(this.Close_Click);
             // 
             // PathBox
             // 

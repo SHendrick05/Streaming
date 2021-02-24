@@ -30,12 +30,12 @@ namespace Streaming
         }
 
         // Top buttons
-        private void close_Click(object sender, EventArgs e)
+        private void Close_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void min_Click(object sender, EventArgs e)
+        private void Min_Click(object sender, EventArgs e)
         {
             WindowState = WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
         }
