@@ -10,3 +10,5 @@ This was set as a Computer Science project from my school, to test our implement
 - Thumbnails, titles and descriptions
 - User accounts
 - Liking and disliking
+
+The Custom toolbar code is not mine, and was taken from the Microsoft documentation [Here](https://docs.microsoft.com/en-us/troubleshoot/dotnet/csharp/create-smooth-progress-bar).
