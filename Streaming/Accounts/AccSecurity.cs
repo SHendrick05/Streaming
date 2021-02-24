@@ -12,8 +12,8 @@ namespace Streaming
         //
         // Random generation
         //
-        private static RNGCryptoServiceProvider rngCsp = new RNGCryptoServiceProvider();
-        public static string genText(int len)
+        private static readonly RNGCryptoServiceProvider rngCsp = new RNGCryptoServiceProvider();
+        public static string GenText(int len)
         {
             string valid = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789!$% ^&*()[];'#,./{}:@~<>?'";
             StringBuilder res = new StringBuilder();

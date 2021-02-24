@@ -34,24 +34,24 @@ namespace Streaming
 
 
         // Top bar
-        private void close_Click(object sender, EventArgs e)
+        private void Close_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void min_Click(object sender, EventArgs e)
+        private void Min_Click(object sender, EventArgs e)
         {
             WindowState = WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
         }
 
-        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        private void TabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
             e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(41, 44, 51)), MainTab.ClientRectangle);
             e.Graphics.FillRectangle(Brushes.Black, e.Bounds);
         }
 
         // Combobox init
-        private List<string> ints(int a, int b)
+        private List<string> Ints(int a, int b)
         {
             List<string> res = new List<string>();
             for (int i = a; i <= b; i++)
@@ -60,22 +60,22 @@ namespace Streaming
             }
             return res;
         }
-        private void monthChanged(object sender, EventArgs e)
+        private void MonthChanged(object sender, EventArgs e)
         {
             if ("JanMarMayJulAugOctDec".Contains(monthBox.Text))
             {
                 dayBox.Items.Clear();
-                dayBox.Items.AddRange(ints(1, 31).ToArray());
+                dayBox.Items.AddRange(Ints(1, 31).ToArray());
             }
             else if ("AprJunSepNov".Contains(monthBox.Text))
             {
                 dayBox.Items.Clear();
-                dayBox.Items.AddRange(ints(1, 30).ToArray());
+                dayBox.Items.AddRange(Ints(1, 30).ToArray());
             }
             else
             {
                 dayBox.Items.Clear();
-                dayBox.Items.AddRange(ints(1, 28).ToArray());
+                dayBox.Items.AddRange(Ints(1, 28).ToArray());
             }
         }
 
@@ -117,16 +117,14 @@ namespace Streaming
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-
-
-            List<User> userList = Users.userList;
+            _ = Users.userList;
 
             RegError.Visible = false;
             int result = MakeAccount();
             switch(result)
             {
                 case 0:
-                    string salt = AccSecurity.genText(5);
+                    string salt = AccSecurity.GenText(5);
                     string hash = AccSecurity.Hashval(R_PW1.Text + salt);
                     User newUser = new User(R_User.Text, hash, salt, GetDOB());
                     Users.userList.Add(newUser);

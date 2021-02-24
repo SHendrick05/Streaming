@@ -30,13 +30,13 @@ namespace Streaming
             CurrentUser = usr;
             InitializeComponent();
             vids = Videos.videoList;
-            if (usr.access == Level.CHILD)
+            if (usr.Access == Level.CHILD)
                 vids = vids.Where(x => x.AdultOnly == false).ToList();
             LoadPanelsToGUI();
             foreach(Video vid in Videos.videoList)
             {
                 if (!usr.Ratings.ContainsKey(vid.Path))
-                    usr.Rate(vid, lState.NONE);
+                    usr.Rate(vid, LState.NONE);
             }
         }
 
@@ -118,28 +118,28 @@ namespace Streaming
         private void SearchButton_Click(object sender, EventArgs e) // Interface for the search algorithm
         {
             vids = Search.SearchVids(searchBar.Text, Videos.videoList);
-            if (CurrentUser.access == Level.CHILD)
+            if (CurrentUser.Access == Level.CHILD)
                 vids = vids.Where(x => x.AdultOnly == false).ToList();
             ClearPanels();
             LoadPanelsToGUI();
         }
 
-        private void refresh_Click(object sender, EventArgs e) // Refresh video list
+        private void Refresh_Click(object sender, EventArgs e) // Refresh video list
         {
             vids = Videos.videoList;
-            if (CurrentUser.access == Level.CHILD)
+            if (CurrentUser.Access == Level.CHILD)
                 vids = vids.Where(x => x.AdultOnly == false).ToList();
             ClearPanels();
             LoadPanelsToGUI();
         }
 
-        private void upl_Click(object sender, EventArgs e) // Upload
+        private void Upl_Click(object sender, EventArgs e) // Upload
         {
             Upload upl = new Upload();
             upl.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void LogOut(object sender, EventArgs e)
         {
             Login lgn = new Login();
             lgn.Show();

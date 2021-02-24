@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace Streaming
+﻿namespace Streaming
 {
     partial class Player
     {
@@ -21,6 +19,9 @@ namespace Streaming
             }
             base.Dispose(disposing);
         }
+
+
+
 
         #region Windows Form Designer generated code
 
@@ -44,6 +45,11 @@ namespace Streaming
             this.replay = new System.Windows.Forms.Button();
             this.UpLabel = new System.Windows.Forms.Label();
             this.DownLabel = new System.Windows.Forms.Label();
+            this.likeRatio = new Tools.SmoothProgressBar();
+            this.timestamp = new System.Windows.Forms.Label();
+            this.vidTitle = new System.Windows.Forms.Label();
+            this.vidUploader = new System.Windows.Forms.Label();
+            this.vidDesc = new System.Windows.Forms.TextBox();
             this.top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.video)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seek)).BeginInit();
@@ -58,7 +64,7 @@ namespace Streaming
             this.top.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.top.Location = new System.Drawing.Point(0, 0);
             this.top.Name = "top";
-            this.top.Size = new System.Drawing.Size(1125, 33);
+            this.top.Size = new System.Drawing.Size(1318, 33);
             this.top.TabIndex = 1;
             this.top.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Drag);
             // 
@@ -81,7 +87,7 @@ namespace Streaming
             this.min.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.min.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.min.ForeColor = System.Drawing.SystemColors.Control;
-            this.min.Location = new System.Drawing.Point(1023, 0);
+            this.min.Location = new System.Drawing.Point(1216, 0);
             this.min.Name = "min";
             this.min.Size = new System.Drawing.Size(51, 33);
             this.min.TabIndex = 2;
@@ -95,7 +101,7 @@ namespace Streaming
             this.close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.close.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.close.ForeColor = System.Drawing.SystemColors.Control;
-            this.close.Location = new System.Drawing.Point(1074, 0);
+            this.close.Location = new System.Drawing.Point(1267, 0);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(51, 33);
             this.close.TabIndex = 0;
@@ -159,7 +165,7 @@ namespace Streaming
             this.ThumbsDown.FlatAppearance.BorderSize = 0;
             this.ThumbsDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ThumbsDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ThumbsDown.Location = new System.Drawing.Point(1029, 346);
+            this.ThumbsDown.Location = new System.Drawing.Point(1216, 495);
             this.ThumbsDown.Name = "ThumbsDown";
             this.ThumbsDown.Size = new System.Drawing.Size(84, 84);
             this.ThumbsDown.TabIndex = 9;
@@ -173,7 +179,7 @@ namespace Streaming
             this.ThumbsUp.FlatAppearance.BorderSize = 0;
             this.ThumbsUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ThumbsUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
-            this.ThumbsUp.Location = new System.Drawing.Point(1029, 190);
+            this.ThumbsUp.Location = new System.Drawing.Point(1029, 495);
             this.ThumbsUp.Name = "ThumbsUp";
             this.ThumbsUp.Size = new System.Drawing.Size(84, 84);
             this.ThumbsUp.TabIndex = 8;
@@ -200,7 +206,7 @@ namespace Streaming
             this.UpLabel.AutoSize = true;
             this.UpLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(14)))));
-            this.UpLabel.Location = new System.Drawing.Point(1025, 297);
+            this.UpLabel.Location = new System.Drawing.Point(1029, 640);
             this.UpLabel.Name = "UpLabel";
             this.UpLabel.Size = new System.Drawing.Size(49, 21);
             this.UpLabel.TabIndex = 18;
@@ -211,18 +217,82 @@ namespace Streaming
             this.DownLabel.AutoSize = true;
             this.DownLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DownLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.DownLabel.Location = new System.Drawing.Point(1074, 297);
+            this.DownLabel.Location = new System.Drawing.Point(1251, 640);
             this.DownLabel.Name = "DownLabel";
             this.DownLabel.Size = new System.Drawing.Size(49, 21);
             this.DownLabel.TabIndex = 19;
             this.DownLabel.Text = "100%";
+            // 
+            // likeRatio
+            // 
+            this.likeRatio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.likeRatio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.likeRatio.Location = new System.Drawing.Point(1029, 618);
+            this.likeRatio.Maximum = 10000;
+            this.likeRatio.Minimum = 0;
+            this.likeRatio.Name = "likeRatio";
+            this.likeRatio.ProgressBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
+            this.likeRatio.Size = new System.Drawing.Size(278, 10);
+            this.likeRatio.TabIndex = 20;
+            this.likeRatio.Value = 5000;
+            // 
+            // timestamp
+            // 
+            this.timestamp.AutoSize = true;
+            this.timestamp.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timestamp.ForeColor = System.Drawing.SystemColors.Control;
+            this.timestamp.Location = new System.Drawing.Point(892, 598);
+            this.timestamp.Name = "timestamp";
+            this.timestamp.Size = new System.Drawing.Size(131, 21);
+            this.timestamp.TabIndex = 21;
+            this.timestamp.Text = "0:00:00 / 0:00:00";
+            // 
+            // vidTitle
+            // 
+            this.vidTitle.AutoSize = true;
+            this.vidTitle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vidTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.vidTitle.Location = new System.Drawing.Point(1029, 55);
+            this.vidTitle.Name = "vidTitle";
+            this.vidTitle.Size = new System.Drawing.Size(81, 21);
+            this.vidTitle.TabIndex = 22;
+            this.vidTitle.Text = "Title Here";
+            // 
+            // vidUploader
+            // 
+            this.vidUploader.AutoSize = true;
+            this.vidUploader.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vidUploader.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.vidUploader.Location = new System.Drawing.Point(1029, 96);
+            this.vidUploader.Name = "vidUploader";
+            this.vidUploader.Size = new System.Drawing.Size(50, 21);
+            this.vidUploader.TabIndex = 23;
+            this.vidUploader.Text = "user1";
+            // 
+            // vidDesc
+            // 
+            this.vidDesc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.vidDesc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.vidDesc.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.vidDesc.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.vidDesc.Location = new System.Drawing.Point(1029, 153);
+            this.vidDesc.Multiline = true;
+            this.vidDesc.Name = "vidDesc";
+            this.vidDesc.Size = new System.Drawing.Size(276, 315);
+            this.vidDesc.TabIndex = 24;
+            this.vidDesc.Text = "Description here";
             // 
             // Player
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(1125, 649);
+            this.ClientSize = new System.Drawing.Size(1318, 666);
+            this.Controls.Add(this.vidDesc);
+            this.Controls.Add(this.vidUploader);
+            this.Controls.Add(this.vidTitle);
+            this.Controls.Add(this.timestamp);
+            this.Controls.Add(this.likeRatio);
             this.Controls.Add(this.DownLabel);
             this.Controls.Add(this.UpLabel);
             this.Controls.Add(this.ThumbsDown);
@@ -260,5 +330,10 @@ namespace Streaming
         private System.Windows.Forms.Button ThumbsDown;
         private System.Windows.Forms.Label UpLabel;
         private System.Windows.Forms.Label DownLabel;
+        private Tools.SmoothProgressBar likeRatio;
+        private System.Windows.Forms.Label timestamp;
+        private System.Windows.Forms.Label vidTitle;
+        private System.Windows.Forms.Label vidUploader;
+        private System.Windows.Forms.TextBox vidDesc;
     }
 }

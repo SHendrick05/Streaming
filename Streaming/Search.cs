@@ -23,7 +23,7 @@ namespace Streaming
                     template.Controls[0].Text = vid.Views.ToString() + " view(s)";
                     template.Controls[2].Text = vid.Title;
                     PictureBox box = (PictureBox)template.Controls[3];
-                    template.Controls[4].Text = "By " + vid.uploader;
+                    template.Controls[4].Text = "By " + vid.Uploader;
                     box.Image = vid.Thumbnail;
                     vid.Pnl = template;
                     results.Add(template);

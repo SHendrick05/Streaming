@@ -15,7 +15,7 @@ namespace Streaming
             Dislikes = 0;
             Views = 0;
             AdultOnly = adult;
-            uploader = user;
+            Uploader = user;
         }
 
         public uint Views { get; set; }
@@ -33,11 +33,17 @@ namespace Streaming
         public uint Likes { get; set; }
         public uint Dislikes { get; set; }
         public bool AdultOnly { get; set; }
-        public string uploader { get; set; }
+        public string Uploader { get; set; }
         internal double LR_Ratio
         { get
             {
-                return Likes / (Likes + Dislikes);
+                if (Likes == 0)
+                    if (Dislikes == 0)
+                        return 50;
+                    else
+                        return 0;
+                else
+                    return (double)Likes / (Likes + Dislikes) * 100;
             } }
     }
 }

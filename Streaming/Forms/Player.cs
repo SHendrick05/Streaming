@@ -6,7 +6,7 @@ using Timer = System.Windows.Forms.Timer;
 
 namespace Streaming
 {
-    public enum lState
+    public enum LState
     {
         DISLIKE,
         LIKE,
@@ -40,12 +40,18 @@ namespace Streaming
             currVid = vid;
             if (Search.currUser.Ratings.ContainsKey(currVid.Path))
             {
-                if (Search.currUser.Ratings[currVid.Path] == lState.DISLIKE)
+                if (Search.currUser.Ratings[currVid.Path] == LState.DISLIKE)
                     ThumbsDown.BackgroundImage = Properties.Resources.down_fl;
-                else if (Search.currUser.Ratings[currVid.Path] == lState.LIKE)
+                else if (Search.currUser.Ratings[currVid.Path] == LState.LIKE)
                     ThumbsUp.BackgroundImage = Properties.Resources.up_fl;
             } 
-            else Search.currUser.Rate(currVid, lState.NONE);
+            else Search.currUser.Rate(currVid, LState.NONE);
+            UpLabel.Text = currVid.Likes.ToString();
+            DownLabel.Text = currVid.Dislikes.ToString();
+            likeRatio.Value = Convert.ToInt32(currVid.LR_Ratio * 100);
+            vidTitle.Text = vid.Title;
+            vidUploader.Text = vid.Uploader;
+            vidDesc.Text = vid.Desc;
         }
 
         public Video currVid;
@@ -146,6 +152,9 @@ namespace Streaming
         // Progress bar
         private void Update(object sender, EventArgs e)
         {
+            TimeSpan len = new TimeSpan(0, 0, (int)video.Ctlcontrols.currentItem.duration);
+            TimeSpan pass = new TimeSpan(0, 0, (int)video.Ctlcontrols.currentPosition);
+            timestamp.Text = $"{Math.Floor(pass.TotalHours)}:{pass.Minutes}:{pass.Seconds}/{Math.Floor(len.TotalHours)}:{len.Minutes}:{len.Seconds}";
             int pos = (int)(video.Ctlcontrols.currentPosition * 10);
             bool comp = pos <= seek.Maximum;
             seek.Value = comp ? pos : seek.Maximum;
@@ -162,40 +171,56 @@ namespace Streaming
             video.Ctlcontrols.currentPosition = 0;
             video.Ctlcontrols.play();
             replay.Visible = false;
+            play.Text = "Pause";
         }
 
         private void ThumbsUp_Click(object sender, EventArgs e)
         {
-            if (Search.currUser.Ratings[currVid.Path] == lState.LIKE)
+            if (Search.currUser.Ratings[currVid.Path] == LState.LIKE)
             {
-                Search.currUser.Rate(currVid, lState.NONE);
+                // Cancel a like
+                Search.currUser.Rate(currVid, LState.NONE);
                 ThumbsUp.BackgroundImage = Streaming.Properties.Resources.up_ol;
                 currVid.Likes--;
             }
             else
             {
-                Search.currUser.Rate(currVid, lState.LIKE);
+                // Like the video
+                if (Search.currUser.Ratings[currVid.Path] == LState.DISLIKE)
+                    currVid.Dislikes--;
+                Search.currUser.Rate(currVid, LState.LIKE);
                 ThumbsUp.BackgroundImage = Streaming.Properties.Resources.up_fl;
                 ThumbsDown.BackgroundImage = Streaming.Properties.Resources.down_ol;
                 currVid.Likes++;
             }
+            DownLabel.Text = currVid.Dislikes.ToString();
+            UpLabel.Text = currVid.Likes.ToString();
+            likeRatio.Value = Convert.ToInt32(currVid.LR_Ratio * 100);
         }
 
         private void ThumbsDown_Click(object sender, EventArgs e)
         {
-            if (Search.currUser.Ratings[currVid.Path] == lState.DISLIKE)
+            if (Search.currUser.Ratings[currVid.Path] == LState.DISLIKE)
             {
-                Search.currUser.Rate(currVid, lState.NONE);
+                // Cancel a dislike
+                Search.currUser.Rate(currVid, LState.NONE);
                 ThumbsDown.BackgroundImage = Streaming.Properties.Resources.down_ol;
                 currVid.Dislikes--;
             }
             else
             {
-                Search.currUser.Rate(currVid, lState.DISLIKE);
+                //Dislike the video
+                if (Search.currUser.Ratings[currVid.Path] == LState.LIKE)
+                    currVid.Likes--;
+                Search.currUser.Rate(currVid, LState.DISLIKE);
                 ThumbsDown.BackgroundImage = Streaming.Properties.Resources.down_fl;
                 ThumbsUp.BackgroundImage = Streaming.Properties.Resources.up_ol;
                 currVid.Dislikes++;
+
             }
+            DownLabel.Text = currVid.Dislikes.ToString();
+            UpLabel.Text = currVid.Likes.ToString();
+            likeRatio.Value = Convert.ToInt32(currVid.LR_Ratio * 100);
         }
     }
 }
