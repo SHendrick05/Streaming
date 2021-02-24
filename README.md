@@ -8,4 +8,5 @@ This was set as a Computer Science project from my school, to test our implement
 - Seek through videos
 - Pause and stop
 - Thumbnails, titles and descriptions
-
+- User accounts
+- Liking and disliking
