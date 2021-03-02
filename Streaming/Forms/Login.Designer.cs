@@ -55,6 +55,7 @@ namespace Streaming
             this.L_ULabel = new System.Windows.Forms.Label();
             this.L_PWLabel = new System.Windows.Forms.Label();
             this.MainTab = new System.Windows.Forms.TabControl();
+            this.dobLabel = new System.Windows.Forms.Label();
             this.top.SuspendLayout();
             this.regTab.SuspendLayout();
             this.logTab.SuspendLayout();
@@ -118,6 +119,7 @@ namespace Streaming
             // regTab
             // 
             this.regTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.regTab.Controls.Add(this.dobLabel);
             this.regTab.Controls.Add(this.dayBox);
             this.regTab.Controls.Add(this.monthBox);
             this.regTab.Controls.Add(this.yearBox);
@@ -556,6 +558,17 @@ namespace Streaming
             this.MainTab.TabIndex = 16;
             this.MainTab.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.TabControl1_DrawItem);
             // 
+            // dobLabel
+            // 
+            this.dobLabel.AutoSize = true;
+            this.dobLabel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dobLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.dobLabel.Location = new System.Drawing.Point(135, 153);
+            this.dobLabel.Name = "dobLabel";
+            this.dobLabel.Size = new System.Drawing.Size(123, 22);
+            this.dobLabel.TabIndex = 28;
+            this.dobLabel.Text = "Date of Birth";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -606,5 +619,6 @@ namespace Streaming
         private System.Windows.Forms.ComboBox dayBox;
         private System.Windows.Forms.ComboBox monthBox;
         private System.Windows.Forms.ComboBox yearBox;
+        private System.Windows.Forms.Label dobLabel;
     }
 }
