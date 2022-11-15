@@ -9,6 +9,7 @@ namespace Streaming
         public static List<Video> videoList = new List<Video>();
         static Videos() // Get the videos from list.json
         {
+            JsonConvert.DefaultSettings = () => new JsonSerializerSettings { MaxDepth = 128 };
             Directory.CreateDirectory(@"videos");
             if (!File.Exists(@"videos\list.json"))
             {
