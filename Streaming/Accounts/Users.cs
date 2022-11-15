@@ -17,6 +17,7 @@ namespace Streaming
 
         static Users()
         {
+            JsonConvert.DefaultSettings = () => new JsonSerializerSettings { MaxDepth = 128 };
             Directory.CreateDirectory("accounts");
             if (!File.Exists(fPath))
             {
