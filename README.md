@@ -1,5 +1,5 @@
 # Basic offline video streaming service
-This was set as a Computer Science project from Turton School as part of the GCSE CS course.
+This was set as a Computer Science project as part of the GCSE CS course.
 
 # Features
 - Upload videos
